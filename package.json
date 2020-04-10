@@ -1,0 +1,29 @@
+{
+  "name": "@futuretense/curve25519-elliptic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/commonjs/index.js",
+  "browser": "lib/esm/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "clean": "rm -rf lib && rm -rf temp",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:types",
+    "build:esm": "npx tsc -p tsconfig.json -m es6 --outDir lib/esm",
+    "build:cjs": "npx tsc -p tsconfig.json -m commonjs --outDir lib/commonjs",
+    "build:types": "npx tsc -p config/tsconfig.types.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Johan Stén <johan@futuretense.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^13.11.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "elliptic": "^6.5.2",
+    "secure-random": "^1.1.2"
+  }
+}
